@@ -1,0 +1,14 @@
+{
+  "java8": "true",
+  "dateLibrary": "java8",
+  "useBeanValidation": "true",
+  "useTags": "true",
+  "generateApiTests": "false",
+  "generateApiDocumentation": "false",
+  "supportingFiles": "false",
+  "serializableModel": "true",
+  "basePackage": "com.girgin.ramazan.foo",
+  "modelPackage": "com.girgin.ramazan.foo.api.model",
+  "apiPackage": "com.girgin.ramazan.foo.api",
+  "configPackage": "com.girgin.ramazan.foo.config"
+}

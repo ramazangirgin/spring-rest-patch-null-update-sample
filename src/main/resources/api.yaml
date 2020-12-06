@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Test Foo partial update with PATCH example API
+  version: 1.0.0
+  description: API specification to support partial update in PATH with nullable model property
+
+paths:
+  /foos/{id}:
+    patch:
+      operationId: update
+      tags:
+        - Foos
+      description: Partially updates Foo
+      parameters:
+        - name: id
+          in: path
+          description: Foo ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FooUpdateRequest'
+      responses:
+        201:
+          description: successfully updated a Foo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Foo'
+
+components:
+  schemas:
+    FooUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Not Nullable Name Field
+          minLength: 3
+        externalId:
+          type: integer
+          format: int64
+          nullable: true
+          minimum: 1000
+          description: Nullable External Id Field
+    Foo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: the id of the Foo
+        name:
+          type: string
+          description: Name of the Foo
+        externalId:
+          type: integer
+          format: int64
+          description: External Id of the Foo
